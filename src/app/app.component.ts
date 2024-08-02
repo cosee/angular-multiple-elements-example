@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-rendering-multiple-tags';
+  githubBasePath = "https://github.com/cosee/angular-multiple-elements-example/blob/main/src/app/components"
 }

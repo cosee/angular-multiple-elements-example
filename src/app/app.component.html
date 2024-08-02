@@ -3,6 +3,18 @@
   <title>Angular "multiple elements per component" demo</title>
 </head>
 <body>
+<h1>
+  How to render multiple elements with a single Angular component?
+</h1>
+<p>
+<p>
+  Details for this example can be found in <a href="">this post at blog.cosee.biz</a>.
+</p>
+<p>
+  The outer box is a div-element with <code>display: grid</code>. The goal is to create
+  a component that renders multiple tags such that they are correctly inserted in
+  the grid.
+</p>
 <div class="my-grid">
   <div>1</div>
   <div>2</div>
@@ -14,10 +26,31 @@
 </div>
 <section style="max-width: 800px; margin: auto">
   <p>
-    See <a href="">this post at blog.cosee.biz</a> for more details.
+    Source code:
   </p>
+  <dl>
+    <dt><a href="{{githubBasePath}}/with-host-element">with host element</a></dt>
+    <dd>The default case: Angular always wraps
+      components
+      in an enclosing host-element, messing up the grid layout.
+    </dd>
+    <dt><a href="{{githubBasePath}}/display-contents">display contents</a>
+    <dt>
+    <dd> Setting <code>display: contents</code> as
+      style for the host-element.
+    </dd>
+    <dd>
+    <dt><a href="{{githubBasePath}}/outside-host-element">outside host element</a></dt>
+    <dd>Uses the approach from <a
+      href="https://stackoverflow.com/a/56887630">https://stackoverflow.com/a/56887630</a>
+      to render the child elements directly inside the container and hide the host element.
+    </dd>
+  </dl>
+  <hr/>
   <p>
-    This page is hosted in Github Pages. See [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+    This page is hosted on Github Pages. See <a
+    href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy
+    Statement</a>
     for details.
   </p>
 </section>
