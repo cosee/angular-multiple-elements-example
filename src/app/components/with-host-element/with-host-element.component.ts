@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './with-host-element.component.html',
   styleUrls: ['./with-host-element.component.css']
 })
-export class WithHostElementComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class WithHostElementComponent  {
 }

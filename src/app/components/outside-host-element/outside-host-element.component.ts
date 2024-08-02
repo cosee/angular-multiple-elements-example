@@ -17,5 +17,4 @@ export class OutsideHostElementComponent implements OnInit {
   ngOnInit(): void {
     this.viewContainerRef.createEmbeddedView(this.template);
   }
-
 }
