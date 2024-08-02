@@ -1,0 +1,9 @@
+.my-grid {
+  margin: auto;
+  max-width: 800px;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+

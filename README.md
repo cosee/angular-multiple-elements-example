@@ -1,27 +1,28 @@
 # ComponentRenderingMultipleTags
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+This project demonstrates a single thing: How to render multiple tags with a single
+angular component.
 
-## Development server
+Imagine the following scenario:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Your have a parent component using a css-grid
+* You have a child component that renders two related but separate elements.
 
-## Code scaffolding
+By default, the child component will be wrapped inside a so-called "host"-element 
+with the same name as the component selector. This will break the layout.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+There is one css-way, [display: contents](), that inlines the child elements into their parent.
+([caniuse it?](https://caniuse.com/css-display-contents)).
+But if JavaScript is modifying styles of tags implicitly, this may not work correctly.
 
-## Build
+After a couple of hours of research and a good-night sleep, I found this: https://stackoverflow.com/a/56887630
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+It outlines the following steps:
 
-## Running unit tests
+* Wrap the component template with an `ng-template`.
+* Render the contents of that template into the viewContainer (i.e. the parent component)
+  as embedded view
+* Set the host element to `display:none` to prevent it from messing with the layout.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+I have deliberately used an old angular version here to demonstrate that you do not 
+need the newest version to implement this.
